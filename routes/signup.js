@@ -45,7 +45,7 @@ router.post('/', checkNotLogin, function (req, res, next) {
     // 注册失败，异步删除上传的头像
     fs.unlink(req.files.avatar.path)
     req.flash('error', e.message)
-    res.redirect('/signup')
+    return res.redirect('/signup')
     // console.log(e);
   }
 
