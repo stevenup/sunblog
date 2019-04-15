@@ -46,6 +46,7 @@ router.post('/', checkNotLogin, function (req, res, next) {
     // fs.unlink(req.files.avatar.path)
     // req.flash('error', e.message)
     // return res.redirect('/signup')
+    console.log(e);
   }
 
   // 明文密码加密
