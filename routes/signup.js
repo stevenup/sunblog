@@ -43,9 +43,9 @@ router.post('/', checkNotLogin, function (req, res, next) {
     }
   } catch (e) {
     // 注册失败，异步删除上传的头像
-    fs.unlink(req.files.avatar.path)
-    req.flash('error', e.message)
-    return res.redirect('/signup')
+    // fs.unlink(req.files.avatar.path)
+    // req.flash('error', e.message)
+    // return res.redirect('/signup')
   }
 
   // 明文密码加密
