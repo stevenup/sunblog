@@ -1,12 +1,5 @@
 /* ---------- 全局样式 ---------- */
 
-body {
-  width: 1100px;
-  height: 100%;
-  margin: 0 auto;
-  padding-top: 40px;
-}
-
 a:hover {
   border-bottom: 3px solid #4fc08d;
 }
