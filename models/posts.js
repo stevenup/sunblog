@@ -1,17 +1,36 @@
-const marked = require('marked')
+var MarkdownIt = require('markdown-it')
+var hljs = require('highlight.js')
+
+var md = new MarkdownIt({
+  html: true,
+  linkify: true,
+  typographer: true,
+  highlight: function (str, lang) {
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        return '<pre class="hljs"><code>' +
+          hljs.highlight(lang, str, true).value +
+          '</code></pre>';
+      } catch (__) {}
+    }
+
+    return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
+  }
+});
+
 const Post = require('../lib/mongo').Post
 
 // 将 post 的 content 从 markdown 转换成 html
 Post.plugin('contentToHtml', {
   afterFind: function (posts) {
     return posts.map(function (post) {
-      post.content = marked(post.content)
+      post.content = md.render(post.content)
       return post
     })
   },
   afterFindOne: function (post) {
     if (post) {
-      post.content = marked(post.content)
+      post.content = md.render(post.content)
     }
     return post
   }

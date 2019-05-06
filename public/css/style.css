@@ -1,7 +1,7 @@
 /* ---------- 全局样式 ---------- */
 
 a:hover {
-  border-bottom: 3px solid #4fc08d;
+  border-bottom: 3px solid #243e5b;
 }
 
 .button {
@@ -24,8 +24,13 @@ a:hover {
   text-align: center;
 }
 
+.nav-header {
+  margin-top: 2vw;
+  margin-bottom: 2vw;
+}
+
 .nav h1 {
-  color: #4fc08d;
+  color: #224a6d;
   display: inline-block;
   margin: 10px 0;
 }
@@ -51,21 +56,27 @@ a:hover {
 
 /* ---------- post-content ---------- */
 
-.post-content h3 a {
-  color: #4fc08d !important;
+.post-content-wrap h3 a {
+  color: #243e5b !important;
 }
 
-.post-content .tag {
+.post-content-wrap .tag {
   font-size: 13px;
   margin-right: 5px;
   color: #999;
 }
 
-.post-content .tag.right {
+.post-content-wrap .tag.right {
   float: right;
   margin-right: 0;
 }
 
-.post-content .tag.right a {
+.post-content-wrap .tag.right a {
   color: #999;
+}
+
+.post-content {
+  font-size: 14px;
+  margin-top: 14px;
+
 }
