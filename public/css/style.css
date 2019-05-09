@@ -1,5 +1,10 @@
 /* ---------- 全局样式 ---------- */
 
+.container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 a:hover {
   border-bottom: 3px solid #243e5b;
 }
@@ -19,7 +24,6 @@ a:hover {
 /* ---------- nav ---------- */
 
 .nav {
-  margin-bottom: 20px;
   color: #999;
   text-align: center;
 }
@@ -78,5 +82,4 @@ a:hover {
 .post-content {
   font-size: 14px;
   margin-top: 14px;
-
 }

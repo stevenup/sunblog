@@ -1,50 +1,46 @@
-<div class="post-content-wrap">
-  <div class="ui text container">
-    <div class="ui segments">
-      <div class="ui segment">
-        <h3>
-          <a href="/posts/<%= post._id %>">
-            <%= post.title %>
-          </a>
-        </h3>
+<div class="ui segment">
+  <h3>
+    <a href="/posts/<%= post._id %>">
+      <%= post.title %>
+    </a>
+  </h3>
 
-        <div>
-          <span class="tag">
-            <%= post.created_at %>
-          </span>
-          <!-- <span class="tag right"> -->
-          <!-- <span>浏览(
+  <div>
+    <span class="tag">
+      <%= post.created_at %>
+    </span>
+    <!-- <span class="tag right"> -->
+    <!-- <span>浏览(
               <%= post.pv || 0 %>)</span> -->
-          <!-- <span>留言(
+    <!-- <span>留言(
               <%= post.commentsCount || 0 %>)</span> -->
 
-          <% if (user && post.author._id && user._id.toString() === post.author._id.toString()) { %>
-          <div class="ui inline dropdown">
-            <div class="text"></div>
-            <i class="dropdown icon"></i>
-            <div class="menu">
-              <div class="item"><a href="/posts/<%= post._id %>/edit">编辑</a>
-              </div>
-              <div class="item"><a href="/posts/<%= post._id %>/remove">删除</a>
-              </div>
-            </div>
-          </div>
-          <% } %>
-
-          </span>
+    <% if (user && post.author._id && user._id.toString() === post.author._id.toString()) { %>
+    <div class="ui inline dropdown">
+      <div class="text"></div>
+      <i class="dropdown icon"></i>
+      <div class="menu">
+        <div class="item"><a href="/posts/<%= post._id %>/edit">编辑</a>
         </div>
-
-        <% if (display == true) { %>
-        <div class="post-content">
-          <%- post.content %>
+        <div class="item"><a href="/posts/<%= post._id %>/remove">删除</a>
         </div>
-        <% } %>
       </div>
     </div>
+    <% } %>
+
+    </span>
   </div>
 
-  <!-- <div class="ui grid"> -->
-  <!-- <div class="four wide column">
+  <% if (display == true) { %>
+  <div class="post-content">
+    <%- post.content %>
+  </div>
+  <% } %>
+</div>
+
+
+<!-- <div class="ui grid"> -->
+<!-- <div class="four wide column">
       <a class="avatar avatar-link" href="/posts?author=<%= post.author._id %>"
         data-title="<%= post.author.name %> | <%= ({m: '男', f: '女', x: '保密'})[post.author.gender] %>"
         data-content="<%= post.author.bio %>">
@@ -52,5 +48,4 @@
       </a>
 		</div> -->
 
-  <!-- </div> -->
-</div>
+<!-- </div> -->
