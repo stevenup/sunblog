@@ -11,7 +11,7 @@ router.get('/', function (req, res, next) {
 
   PostModel.getPosts(author)
     .then(function (posts) {
-      res.render('posts', {
+      res.render('posts/index', {
         posts: posts
       })
     })
@@ -56,14 +56,15 @@ router.post('/create', checkLogin, function (req, res, next) {
 
 // GET /posts/create 发表文章页
 router.get('/create', checkLogin, function (req, res, next) {
-  res.render('create')
+  res.render('posts/create')
 })
 
 // GET /posts/:postId 单独一篇的文章页
 router.get('/:postId', function (req, res, next) {
   const postId = req.params.postId
 
-  Promise.all([
+  Promise
+    .all([
       PostModel.getPostById(postId), // 获取文章信息
       PostModel.incPv(postId) // pv 加 1
     ])
@@ -73,7 +74,7 @@ router.get('/:postId', function (req, res, next) {
         throw new Error('该文章不存在')
       }
 
-      res.render('post', {
+      res.render('posts/show', {
         post: post
       })
     })
@@ -93,7 +94,7 @@ router.get('/:postId/edit', checkLogin, function (req, res, next) {
       if (author.toString() !== post.author._id.toString()) {
         throw new Error('权限不足')
       }
-      res.render('edit', {
+      res.render('posts/edit', {
         post: post
       })
     })
