@@ -1,0 +1,10 @@
+include ../shared/header
+include ../components/post-content
+
+.post-content-wrap
+  .ui.text.container
+    .ui.segments
+      each post in posts
+        +post_content(post)
+
+include ../shared/footer

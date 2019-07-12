@@ -1,0 +1,16 @@
+mixin post_content(post, display)
+  .ui.segment
+    a.title(href=`/posts/${post._id}`) #{post.title}
+    div
+      span.tag= post.created_at
+      if user && post.author._id && user._id.toString() === post.author._id.toString()
+        .ui.inline.dropdown
+          .text
+          i.dropdown.icon
+          .menu
+            .item
+              a(href=`/posts/${post._id}/edit`) 编辑
+            .item
+              a(href=`/posts/${post._id}/remove`) 删除
+      if display == true
+        .post-content !{post.content}
