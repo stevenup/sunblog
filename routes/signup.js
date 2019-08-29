@@ -43,10 +43,10 @@ router.post('/', checkNotLogin, function (req, res, next) {
     }
   } catch (e) {
     // 注册失败，异步删除上传的头像
-    fs.unlink(req.files.avatar.path)
+    // fs.unlink(req.files.avatar.path)
     req.flash('error', e.message)
     return res.redirect('/signup')
-    // console.log(e);
+    console.log(e);
   }
 
   // 明文密码加密

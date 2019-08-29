@@ -95,3 +95,7 @@ a:hover {
   font-size: 14px;
   margin-top: 14px;
 }
+
+.post-content img {
+  width: 100%;
+}
