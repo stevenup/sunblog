@@ -4,12 +4,24 @@ const router = express.Router()
 const checkLogin = require('../middlewares/check').checkLogin
 const PostModel = require('../models/posts')
 
+router.get('/fetch_posts', function (req, res, next) {
+  const page = req.query.page || 1
+
+  PostModel
+    .getPosts(page)
+    .then(function (posts) {
+      res.json(posts)
+    })
+    .catch(next)
+})
+
 // GET /posts 所有用户或者特定用户的文章页
 //   eg: GET /posts?author=xxx
 router.get('/', function (req, res, next) {
-  const author = req.query.author
+  const page = req.query.page || 1
 
-  PostModel.getPosts(author)
+  PostModel
+    .getPosts(page)
     .then(function (posts) {
       res.render('posts/index', {
         posts: posts

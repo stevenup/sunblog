@@ -58,13 +58,19 @@ module.exports = {
   },
 
   // 按创建时间降序获取所有用户文章或者某个特定用户的所有文章
-  getPosts: function getPosts(author) {
-    const query = {}
-    if (author) {
-      query.author = author
+  getPosts: function getPosts(page) {
+    // const query = {}
+    // if (author) {
+    //   query.author = author
+    // }
+    if (page) {
+      var cursor = (page - 1) * 20
     }
     return Post
-      .find(query)
+      // .find(query)
+      .find()
+      .skip(cursor)
+      .limit(20)
       .populate({
         path: 'author',
         model: 'User'

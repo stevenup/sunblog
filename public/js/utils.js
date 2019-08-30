@@ -8,4 +8,17 @@ $(document).ready(function () {
     position: 'bottom right',
     lastResort: 'bottom right'
   });
+
+  $('#more-posts').on('click', function () {
+    $.ajax({
+      url: '/posts/fetch_posts',
+      method: 'GET',
+      data: {
+        page: 1
+      },
+      success: function (posts) {
+        console.log(posts)
+      }
+    })
+  })
 })

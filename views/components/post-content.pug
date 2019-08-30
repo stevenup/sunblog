@@ -1,6 +1,9 @@
 mixin post_content(post, display)
   .ui.segment
-    a.title(href=`/posts/${post._id}`) #{post.title}
+    if display == true
+      a.title #{post.title}
+    else
+      a.title(href=`/posts/${post._id}`) #{post.title}
     div
       span.tag= post.created_at
       if user && post.author._id && user._id.toString() === post.author._id.toString()
