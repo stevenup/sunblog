@@ -49,6 +49,11 @@ a:hover {
   margin: 10px 0;
 }
 
+.nav #jinrishici {
+  font-size: 14px;
+  color: #777;
+}
+
 /* ---------- nav-setting ---------- */
 
 .nav-setting {

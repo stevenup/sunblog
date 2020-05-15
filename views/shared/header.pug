@@ -16,3 +16,11 @@ body
   include ../components/nav
   //- include ../components/nav-setting
   include ../components/notification
+
+  script(src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8")
+  script(type="text/javascript").
+    jinrishici.load(function(result) {
+      if (result.status='success') {
+        $('#jinrishici').html(result.data.content)
+      }
+    });
