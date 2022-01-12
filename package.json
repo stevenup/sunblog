@@ -17,7 +17,7 @@
     "express-session": "^1.15.6",
     "express-winston": "^3.1.0",
     "highlight.js": "^9.15.6",
-    "markdown-it": "^8.4.2",
+    "markdown-it": "^12.3.2",
     "moment": "^2.24.0",
     "mongolass": "^4.4.2",
     "morgan": "^1.9.1",
